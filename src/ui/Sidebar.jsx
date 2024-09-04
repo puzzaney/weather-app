@@ -5,7 +5,7 @@ import { IoMdSettings } from 'react-icons/io';
 
 function Sidebar() {
   return (
-    <div className="bg-[#202B3B] mx-5 my-3 rounded-lg flex flex-col items-center py-6">
+    <div className="hidden md:flex bg-[#202B3B] mx-5 my-3 rounded-lg  flex-col items-center py-6">
       <div className="text-white text-4xl">
         <IoUmbrella />
       </div>

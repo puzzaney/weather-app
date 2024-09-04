@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FaRegSun } from 'react-icons/fa';
+import ForecastElement from './ForecastElement';
 
 function WeatherMain() {
   const [city, setCity] = useState('');
@@ -7,7 +8,7 @@ function WeatherMain() {
   return (
     <div>
       <input
-        className="rounded-lg w-full bg-secondary h-8 px-5 active:ring-0"
+        className="rounded-lg w-full bg-secondary h-8 px-5 "
         placeholder="Search Cities"
         onChange={(e) => setCity(e.target.value)}
         value={city}
@@ -25,8 +26,16 @@ function WeatherMain() {
         <div className=" text-9xl justify-self-end ">
           <FaRegSun />
         </div>
-        <div className="bg-secondary mt-9 px-4 pt-1.5 h-28 rounded-lg">
-          <h5 className="font-semibold">Today's Forecast</h5>
+      </div>
+      <div className="bg-secondary mt-8 px-4  pt-1.5 h-52 rounded-lg flex flex-col justify-start">
+        <h5 className="font-semibold">Today's Forecast</h5>
+        <div className="flex justify-between">
+          <ForecastElement />
+          <ForecastElement />
+          <ForecastElement />
+          <ForecastElement />
+          <ForecastElement />
+          <ForecastElement />
         </div>
       </div>
     </div>
