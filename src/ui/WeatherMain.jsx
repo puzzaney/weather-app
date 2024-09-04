@@ -1,9 +1,13 @@
 import { useState } from 'react';
 import { FaRegSun } from 'react-icons/fa';
 import ForecastElement from './ForecastElement';
+import { useGetLocation } from '../features/geocoding/useGetLocation';
 
 function WeatherMain() {
   const [city, setCity] = useState('');
+  const { data, isLoading, error } = useGetLocation(city);
+
+  console.log(data);
 
   return (
     <div>

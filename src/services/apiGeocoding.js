@@ -1,4 +1,4 @@
-const apiKey = process.env.WEATHER_API_KEY;
+const apiKey = import.meta.env.VITE_GEO_API_KEY;
 
 export async function apiGeocoding(city) {
   const res = await fetch(
