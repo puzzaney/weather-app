@@ -2,21 +2,22 @@ import { useState } from 'react';
 import { FaRegSun } from 'react-icons/fa';
 import ForecastElement from './ForecastElement';
 import { useGetLocation } from '../features/geocoding/useGetLocation';
+import Searchbar from './Searchbar';
 
 function WeatherMain() {
-  const [city, setCity] = useState('');
-  const { data, isLoading, error } = useGetLocation(city);
+  // const { data, isLoading, error } = useGetLocation(city);
 
-  console.log(data);
+  // console.log(data);
 
   return (
     <div>
-      <input
-        className="rounded-lg w-full bg-secondary h-8 px-5 "
-        placeholder="Search Cities"
-        onChange={(e) => setCity(e.target.value)}
-        value={city}
-      />
+      <Searchbar />
+      {/* <CommandDialog open={true}>
+        <CommandInput placeholder="Search Cities" />
+        <CommandList>
+          <CommandEmpty>No results found.</CommandEmpty>
+        </CommandList>
+      </CommandDialog> */}
       <div className="grid grid-cols-2 mt-11 px-6 items-center">
         <div className="flex flex-col">
           <div className="mb-16">
