@@ -1,23 +1,33 @@
 import { useState } from 'react';
+import { useGetLocation } from '../features/geocoding/useGetLocation';
+import AutocompleteItem from '../components/AutocompleteItem';
+
+const apiKey = import.meta.env.VITE_GEO_API_KEY;
 
 function Searchbar() {
   const [city, setCity] = useState('');
 
+  const { data = {}, error, isLoading } = useGetLocation(city);
+
+  const { geonames: cityData = [] } = data;
+
   return (
-    <div className="divide-y divide-primary px-5  overflow-hidden shadow-white shadow-sm bg-secondary">
+    <div className=" divide-y divide-primary  overflow-hidden shadow-secondary rounded-xl shadow bg-secondary">
       <input
         type="text"
         className="
-        rounded-lg w-full bg-secondary h-8 py-5 text-lg text-gray-400 focus:outline-none focus:scale-[1.01] transition-all"
+        px-2 rounded-lg w-full bg-secondary h-8 py-5 text-lg text-gray-400 focus:outline-none"
         placeholder="Search Cities"
         onChange={(e) => setCity(e.target.value)}
         value={city}
       />
-      <ul className="">
-        <li className="mt-1  hover:bg-slate-400 hover:text-white">Birtamode</li>
-        <li className="mt-1  hover:bg-slate-400 hover:text-white">Itahari</li>
-        <li className="mt-1 hover:bg-slate-400 hover:text-white">Kathmandu</li>
-      </ul>
+      {cityData.length > 0 && (
+        <ul className="p-0 w-full m-0">
+          {cityData.map((city) => (
+            <AutocompleteItem city={city.name} key={city.lat} />
+          ))}
+        </ul>
+      )}
     </div>
   );
 }

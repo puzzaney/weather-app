@@ -1,10 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import { apiGeocoding } from '../../services/apiGeocoding';
 
-export function useGetLocation() {
+export function useGetLocation(city) {
   const { isLoading, error, data } = useQuery({
-    queryKey: ['getLocation'],
-    queryFn: (city) => apiGeocoding(city),
+    queryKey: ['getLocation', city],
+    queryFn: () => apiGeocoding(city),
   });
 
   return { data, isLoading, error };

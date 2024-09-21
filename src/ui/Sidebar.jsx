@@ -2,6 +2,7 @@ import { FaCloudSun, FaMap } from 'react-icons/fa';
 import { IoUmbrella } from 'react-icons/io5';
 import SidebarBtn from './SidebarBtn';
 import { IoMdSettings } from 'react-icons/io';
+import { useGetLocation } from '../features/geocoding/useGetLocation';
 
 function Sidebar() {
   return (
